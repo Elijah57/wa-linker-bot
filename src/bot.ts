@@ -1,9 +1,12 @@
 import TelegramBot from "node-telegram-bot-api";
 import dotenv from "dotenv";
+import express from "express"
 
 dotenv.config()
 
+const app = express();
 const token: string = process.env.API_TOKEN;
+const PORT: number = 3000;
 
 const bot = new TelegramBot(token, {polling: true})
 
@@ -36,3 +39,8 @@ bot.on("message", (msg: TelegramBot.Message)=>{
 
 
 })
+
+
+app.listen(PORT, ()=>{
+    console.log(`Server is running at ${PORT}`)
+});
