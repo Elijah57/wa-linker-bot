@@ -8,7 +8,7 @@ const token: string = process.env.API_TOKEN;
 const bot = new TelegramBot(token, {polling: true})
 
 const welcomeMsg: string = "Welcome to the Bot! Use /start to begin";
-const prefix = "http://wa.me/+234";
+const prefix = "https://wa.me/+234";
 
 bot.onText(/\/start/, (msg: TelegramBot.Message)=>{
     const chatId = msg.chat.id;
@@ -19,6 +19,7 @@ bot.on("message", (msg: TelegramBot.Message)=>{
     const chatId = msg.chat.id;
     const userInput = msg.text;
 
+    
     if (userInput?.length !== 11){
         bot.sendMessage(chatId, "Phone number should be 11 numbers")
     }
