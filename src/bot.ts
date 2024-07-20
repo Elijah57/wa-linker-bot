@@ -40,6 +40,9 @@ bot.on("message", (msg: TelegramBot.Message)=>{
 
 })
 
+app.get("/", (req, res)=>{
+    return res.send(200).json({data: "I am alive"});
+});
 
 app.listen(PORT, ()=>{
     console.log(`Server is running at ${PORT}`)
